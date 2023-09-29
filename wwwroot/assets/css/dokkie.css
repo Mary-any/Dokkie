@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;1,500&display=swap');
 
-:root{
+.light{
     --mainColor: #64bcf4;
     --hoverColor: #5bacdf; 
     --backgroundColor: white;
@@ -10,6 +10,15 @@
     --lightTwo:rgb(45, 65, 62);
 }
 
+.dark{
+    --mainColor: #64bcf4;
+    --hoverColor: #5bacdf; 
+    --backgroundColor: #192e3a;
+    --darkOne: #312f37;
+    --darkTwo: #45424b;
+    --lightOne:#919191;
+    --lightTwo: #aaa;
+}
 
 *,
 *::before,
@@ -22,17 +31,13 @@
 
 body{
     font-family: "Poppins", sans-serif;
-    padding: 25px;
-    background-color: white;
-    color: black;
-    font-size: 25px;
-  }
-  
-  .dark-mode {
-    background-color: black;
-    color: white;
+    padding: 25px;  
   }
 
+  .stop-scrolling{
+    height: 100%;
+    overflow: hidden;
+  }
     
 
 img{
@@ -44,6 +49,7 @@ a{
 }
 
 .big-wrapper{
+    position: relative;
     padding: 1.7rem 0 2rem;
     width: 100%;
     min-height: 100vh;
@@ -54,7 +60,8 @@ a{
     justify-content: space-between;
     display: flex;
     flex-direction: column;
-    justify-content:space-between;
+    justify-content:space-between
+
 }
 
 .container{
@@ -65,6 +72,8 @@ a{
     padding: 0 3rem;
     z-index: 10;
 }
+
+
 
 header .container{
     display: flex;
@@ -85,11 +94,12 @@ cursor: pointer;
 }
 
 .logo h2{
-    color:#45424b;
+    color:#2b353b;
     font-size: 1.56rem;
     line-height: 1.2;
     font-weight: 700;
 }
+
 
 .links ul {
     display: flex;
@@ -99,29 +109,31 @@ cursor: pointer;
 
 .links a {
     color: var(--lightTwo);
-    margin-left: 2rem;
+    margin-left: 3rem;
     display: inline-block;
     transition: 0.3s;
 }
 
-.links a:hover {
+.links a:hover{
     color: var(--hoverColor);
     transform: scale(1.05);
 }
 
 .btn {
     display: inline-block;
-    padding: 0.5rem 1.2rem;
+    padding: 0.2rem 1.1rem;
     color: white !important;
     background-color: var(--hoverColor);
-    border-radius: 16px;
+    border-radius: 12px;
     text-transform: capitalize;
     transition: 0.3s;
 }
 
 .btn:hover {
-    background-color: var(--hoverColor);
+    background-color: var(--hoverColor)
+    
 }
+
 
 .showcase-area .container {
     display: grid;
@@ -140,7 +152,7 @@ line-height: 1.3;
     color: var(--lightOne);
     font-size: 1rem;
     margin: 1.9rem 0 2.5rem;
-    max-width: 700px;
+    max-width: 500px;
     line-height: 2;
 }
 
@@ -153,68 +165,77 @@ line-height: 1.3;
     transform: translate(15%, 2px);
 }
 
-/* The switch - the box around the slider */
-.switch {
-    position: relative;
+.toggle-btn{
     display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  /* The slider */
-  .slider {
-    position: absolute;
+    border: none;
+    background-color: var(--darkTwo);
+    color: var(--backgroundColor);
+    outline: none;
     cursor: pointer;
+    height: 39px;
+    width: 39px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.toggle-btn i{
+    line-height: 39px ;
+}
+
+
+.toggle-btn:hover{
+    background: var(--hoverColor);
+}
+
+.big-wrapper.light .toggle-btn i:last-child {
+    display: none;
+}
+
+.big-wrapper.light .toggle-btn i:first-child {
+    display: block;
+}
+
+.big-wrapper.dark .toggle-btn i:last-child {
+    display: block;
+}
+
+.big-wrapper.dark .toggle-btn i:first-child {
+    display: none;
+}
+
+.shape{
+    position: absolute;
+    z-index: 0;
+    width: 450px;
+    bottom: -170px;
+    left: -15px;
+    opacity: 0.1;
+}
+
+.copy{
+    position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
+    z-index: 100;
+    animation: pop 1s 1 both;
+}
+/* @keyframes pop{
+    0%{
+        clip-path: cirlcle(30% at -25% -25%);
+    }
+    100%{
+        clip-path:cirlce(150% at 0 0 );
+    }
+}
 
-  
-  
+@media screen and (max-width:870px){
+   .showcase-area .container{
+    grid-template-columns: 1fr;
+   }
+} */
+
+.pay{
+    width: 100%;
+    transform: none;
+}
