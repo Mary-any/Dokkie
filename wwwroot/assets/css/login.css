@@ -1,23 +1,185 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;1,500&display=swap');
-
 *{
     margin: 0;
-    padding: border-box;
-    font-family: Poppins, sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
 }
 
 body{
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f0faff;
-
+    background-color:cornflowerblue
 }
 
-.wrapper{
+.container{
     position: relative;
-    max-width: 470px;
+    max-width: 430px;
     width: 100%;
-    background: #4070f4;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 0 20px;
+}
+
+.container .forms{
+    display: flex;
+    align-items: center;
+    height: 440px;
+    width: 200%;
+    /* background-color: red; */
+    transition: height 0.2s ease;
+}
+
+
+.container .form{
+    width: 50%;
+    padding: 30px;
+    background-color: #fff;
+   transition: margin-left 0.18s ease;
+}
+
+
+.container.active .login{
+    margin-left: -50%;
+    opacity: 0;
+    transition: margin-left 0.18s ease opacity 0.15s ease;
+ }
+
+ .container .signup{
+   opacity: 0;
+   transition: opacity 0.09s ease;
+ }
+
+ .container.active .signup{
+    opacity: 1;
+    transition: opacity 0.2s ease;
+ }
+
+
+.container.active .forms{
+    height: 600px;
+}
+
+.container .forms .title{
+    position: relative;
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.forms .title::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    border-radius: 25px;
+    background-color:cornflowerblue
+}
+
+.forms .input-field{
+    position: relative;
+    height: 50px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.input-field input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 35px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.input-field input:is(:focus, :valid){
+    border-bottom-color: cornflowerblue;
+}
+
+.input-field i{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 22px;
+}
+
+.input-field input:is(:focus, :valid)~ i{
+   color: cornflowerblue;
+}
+
+.input-field i.icon{
+    left: 0;
+}
+
+.input-field i.showHidePw{
+    right: 0;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.forms .checkbox-text{ 
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.checkbox-text .checkbox-content{
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-content input{
+    accent-color: #4070f4;
+    margin: 0 7px -2px 4px;
+}
+
+.forms text{
+    columns: #333;
+    font-size: 13px;
+}
+
+.forms a.text{
+    color: #4070f4;
+    text-decoration: none;
+}
+
+.forms a:hover{
+    text-decoration: underline;
+}
+
+.forms .button{
+    margin-top: 35px;
+}
+
+.forms .button input{
+    border: none;
+    background-color: cornflowerblue;
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease
+    ;
+}
+
+.button input:hover{
+    background-color: #4070f4;
+}
+
+.forms .login-signup{
+    margin-top: 30px;
+    text-align: center;
 }
