@@ -4,6 +4,8 @@ pwFields = document.querySelectorAll(".password");
 signUp = document.querySelector(".signup-link");
 login = document.querySelector(".login-link");
 
+
+
 //Eye Icon//
 
 pwShowHide.forEach(eyeIcon =>{
@@ -26,6 +28,7 @@ pwShowHide.forEach(eyeIcon =>{
     });
 });
 
+// javascript code to appear Login & Sign-up form
 signUp.addEventListener("click", ()=>{
     container.classList.add("active");
 });

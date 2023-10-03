@@ -14,6 +14,10 @@ body{
     background-color:cornflowerblue
 }
 
+
+
+/* List of Container */
+
 .container{
     position: relative;
     max-width: 430px;
@@ -30,7 +34,6 @@ body{
     align-items: center;
     height: 440px;
     width: 200%;
-    /* background-color: red; */
     transition: height 0.2s ease;
 }
 
@@ -70,6 +73,10 @@ body{
     font-weight: 600;
 }
 
+
+
+/* List of forms */
+
 .forms .title::before{
     content: '';
     position: absolute;
@@ -87,6 +94,10 @@ body{
     margin-top: 30px;
     width: 100%;
 }
+
+
+
+/* List of Input */
 
 .input-field input{
     position: absolute;
@@ -127,12 +138,18 @@ body{
     padding: 10px;
 }
 
+
+
 .forms .checkbox-text{ 
     align-items: center;
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
 }
+
+
+
+/* List of Checkbox */
 
 .checkbox-text .checkbox-content{
     display: flex;
@@ -143,6 +160,10 @@ body{
     accent-color: #4070f4;
     margin: 0 7px -2px 4px;
 }
+
+
+
+/* List of forms */
 
 .forms text{
     columns: #333;
