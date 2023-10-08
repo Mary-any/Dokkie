@@ -1,1 +1,78 @@
-hoi
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8"/>
+    <meta name="Viewport" content="width=device-width, intial-scal=1.0"/>
+
+    <!--Title-->
+    <title>Contact Form</title>
+
+    <!--CSS stylesheet-->
+    <link rel="stylesheet" href="/assets/css/contact.css"/>
+
+    <!--Iconscout-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="form">
+        <div class="contact-info">
+            <h3 class="title">Get in touch with us</h3>
+            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quasi itaque aut qui, veniam nihil dolore, recusandae, illo repellat nemo dicta velit perferendis iste non. Cupiditate veniam aut voluptates? Praesentium.</p>
+
+            <div class="info">
+                <div class="inoformation">
+                    <img src="/assets/Afbeelding/mail.png"  class="icon" alt="">
+                    <p>lorem@mail</p>
+                </div>
+                <div class="inoformation">
+                    <img src="/assets/Afbeelding/tel.png" class="icon" alt="">
+                    <p>123-456-789</p>
+                </div>
+                
+            </div>
+        </div>
+
+      <div class="contact-form">
+        <span class="circle one"></span>
+        <span class="circle two"></span>
+
+        <!--Title 2-->
+        <form action="contact.html">
+            <h3 class="title">Contact us</h3>
+            <div class="input-container">
+                <input type="text" name="" class="input">
+                <label for="">Username</label>
+                <span>Username</span>
+            </div>
+
+            <!--Email-->
+            <div class="input-container">
+                <input type="email" name="email" class="input">
+                <label for="">Email</label>
+                <span>Email</span>
+            </div>
+
+            <!--Telephone-->
+            <div class="input-container">
+                <input type="tel" name="phone" class="input">
+                <label for="">Telephone</label>
+                <span>Telephone</span>
+            </div>
+
+           <!--Message-->
+            <div class="input-container textarea">
+                <textarea name="message" class="input" ></textarea>
+                <label for="">Message</label>
+                <span>Message</span>
+            </div>
+            <input type="submit" value="send" class="btn">
+         </form>
+        </div>
+      </div>
+    </div>
+    <!--Javascript-->
+    <script src="src/contact.js"></script> 
+  </body>
+</html>
