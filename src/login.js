@@ -6,7 +6,7 @@ login = document.querySelector(".login-link");
 
 
 
-//Eye Icon//
+// Eye Icon//
 
 pwShowHide.forEach(eyeIcon =>{
     eyeIcon.addEventListener("click", ()=>{
@@ -29,6 +29,7 @@ pwShowHide.forEach(eyeIcon =>{
 });
 
 // javascript code to appear Login & Sign-up form
+
 signUp.addEventListener("click", ()=>{
     container.classList.add("active");
 });

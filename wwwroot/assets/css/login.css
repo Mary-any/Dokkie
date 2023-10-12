@@ -15,9 +15,6 @@ body{
 }
 
 
-
-/* List of Container */
-
 .container{
     position: relative;
     max-width: 430px;
@@ -75,7 +72,7 @@ body{
 
 
 
-/* List of forms */
+
 
 .forms .title::before{
     content: '';
@@ -95,9 +92,6 @@ body{
     width: 100%;
 }
 
-
-
-/* List of Input */
 
 .input-field input{
     position: absolute;
@@ -149,7 +143,7 @@ body{
 
 
 
-/* List of Checkbox */
+
 
 .checkbox-text .checkbox-content{
     display: flex;
@@ -163,7 +157,7 @@ body{
 
 
 
-/* List of forms */
+
 
 .forms text{
     columns: #333;
