@@ -37,3 +37,8 @@ signUp.addEventListener("click", ()=>{
 login.addEventListener("click", ()=>{
     container.classList.remove("active");
 });
+
+
+Register-now.addEventListener("click","Register-now"()
+
+);
