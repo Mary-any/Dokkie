@@ -4,7 +4,7 @@ pwFields = document.querySelectorAll(".password");
 signUp = document.querySelector(".signup-link");
 login = document.querySelector(".login-link");
 
-
+ 
 
 // Eye Icon//
 
@@ -38,7 +38,8 @@ login.addEventListener("click", ()=>{
     container.classList.remove("active");
 });
 
+// const button= document.querySelector("#Registerbutton");
 
-Register-now.addEventListener("click","Register-now"()
-
-);
+// Registerbutton.addEventListener("click", function(){
+//     console.log("the button is clicked");
+// });

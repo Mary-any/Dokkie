@@ -12,6 +12,7 @@
     <!--Iconscout-->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
+    <!--Title-->
     <title>Login & Sign</title>
 </head>
 <body>
@@ -43,65 +44,62 @@
                     </div>
 
                     <div class="input-field button">
-        
-                        <input type="button" id="login-now" value="Login Now">
+                        <input type="button" value="Login">
                        
                     </div>
                 </form>
 
                 <div class="login-signup">
                     <span class="text">Not a member?
-                        <a href="#" class="text signup-link">signup now </a>
+                        <a href="#" class="text signup-link">Register now </a>
                     </span>
                 </div>
             </div>
 
-            <!--Signup Form-->
+            <!--Register Form-->
             <div class="form signup">
                 <span class="title">Sign-up</span>
 
                 <form action="#">
                     <div class="input-field">
-                        <input type="text" placeholder="Enter your name" required>
+                        <input id="registerUsername" type="text" placeholder="Enter your name" required>
                         <i class="uil uil-user"></i>
                     </div>
 
                     <div class="input-field">
-                        <input type="text" placeholder="Enter your email" required>
+                        <input id="registerEmail" type="text" placeholder="Enter your email" required>
                         <i class="uil uil-envelope icon"></i>
                     </div>
 
                     <div class="input-field">
-                        <input type="password" class="password" placeholder="Create a password" required>
+                        <input id="registerPassword" type="password" class="password" placeholder="Create a password" required>
                         <i class="uil uil-lock icon"></i>
-                        <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
 
                     <div class="input-field">
-                        <input type="password" class="password" placeholder="Comfirm password" required>
+                        <input id="confirmPassword" type="password" class="password" placeholder="confirm password" required>
                         <i class="uil uil-lock icon"></i>
                         <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
 
                     <div class="checkbox-text">
                         <div class="checkbox-content">
-                            <input type="checkbox" id="logCheck">
-                            <label for="logCheck" class="text">Remember me</label>
+                            <input type="checkbox" id="ReCheck">
+                            <label for="ReCheck" class="text">Remember me</label>
                         </div>
 
                         <a href="#" class="text">password?</a>
                     </div>
 
                     <div class="input-field button">
-                        <input type="button" id="Register-now" value="Register now">    
+                        <input id="Registerbutton" type="button" value="Register">
+                       
                     </div>
-
                 </form>
 
                 <div class="login-signup">
                     <span class="text">Not a member?
-                       
-                        <a href="#" class="text login-link">login now</a>
+                        <a href="#" class="text login-link">Register now</a>
                     </span>
                 </div>
             </div>
@@ -111,11 +109,10 @@
 
     <!--Java Script-->
 <script src="src/login.js"></script>
+<!-- 
+<script type="module" src="src/login.ts"></script> -->
 
 </body>
 </html>
-
-
-
 
 
