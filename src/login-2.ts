@@ -28,14 +28,14 @@ function createUser(): void{
         const confirmPassword: string = confirmPasswordInput.value;
         console.log("Password:", confirmPassword);
 
-        if (registerPasswordInput !== confirmPasswordInput) {
+        if (registerPassword !== confirmPassword) {
             console.error("Password does not match"); 
             return;
         }
     
-        const query: string = "INSER INTO user(username,email,password) VALUES (? ,? , ?)";
-        api.queryDatabase(query, registerUsernameInput, registerEmailInput, registerPasswordInput, confirmPasswordInput);
-        console.log("user has been created", registerUsernameInput, registerEmailInput, registerPasswordInput, confirmPasswordInput);
+        const query: string = "INSERT INTO user(username, email, password) VALUES (? ,? , ?)";
+        api.queryDatabase(query, registerUsername, registerEmail, registerPassword,);
+        console.log("user has been created", registerUsername, registerEmail, registerPassword,);
     }   else {
 
         console.error("could not find needed input-field");
@@ -49,3 +49,4 @@ if (Registerbutton){
 } else{
     console.error("cant find Registerbutton");
 } 
+
