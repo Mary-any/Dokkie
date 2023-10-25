@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="Viewport" content="width=device-width, intial-scal=1.0">
+
+    <!--CSS Form-->
+    <link rel="stylesheet" href="/assets/css/uitjes.css">
+
+</head>
+<body>
+    <h1>Cost Sharing</h1>
+
+    <!-- Sectie voor kosteninvoer -->
+    <div id="costs">
+        <h2>Enter Costs:</h2>
+        <div>
+            <label for="expense">Cost amount:</label>
+            <input type="text" id="expense" placeholder="Amount">
+        </div>
+        <div>
+            <label for="description">Description:</label>
+            <input type="text" id="description" placeholder="Explanation">
+        </div>
+        <button id="addExpense">Add Costs</button>
+    </div>
+
+    <!-- Sectie voor vriendenbeheer -->
+    <div id="friends">
+        <h2>Friends/Management:</h2>
+        <div>
+            <label for="friendName">Name Friend:</label>
+            <input type="text" id="friendName" placeholder="Name">
+        </div>
+        <button id="inviteFriend">Invite</button>
+        <h3>Friend list:</h3>
+        <ul id="friendList"></ul>
+    </div>
+
+    <!-- Sectie voor resultaten -->
+    <div id="results">
+        <h2>Cost Sharing:</h2>
+        <ul id="expenseList"></ul>
+        <h3> Total amount:</h3>
+        <p id="totalAmount">0.00</p>
+    </div>
+<!--Java Script Form-->
+    <script src="src/uitjes.js"></script>
+</body>
+</html>

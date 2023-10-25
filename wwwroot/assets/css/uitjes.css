@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;1,500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+/* Stijl voor de hele pagina */
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(88, 168, 243);
+    text-align: center;
+}
+
+/* Algemene stijl voor secties */
+div {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+/* Kopstijl */
+h1 {
+    color: #333;
+}
+
+h2 {
+    font-size: 18px;
+    margin-top: 15px;
+    color: #333;
+}
+
+h3 {
+    font-size: 16px;
+    margin-top: 15px;
+    color: #333;
+}
+
+/* Invoervelden en labels */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Knoppen */
+button {
+    background-color: #4070f4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #355fb4;
+}
+
+/* Lijststijl voor vrienden en kosten */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+}
+
+/* Totaalbedragstijl */
+#totalAmount {
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+}
