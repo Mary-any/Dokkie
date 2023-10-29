@@ -37,9 +37,3 @@ signUp.addEventListener("click", ()=>{
 login.addEventListener("click", ()=>{
     container.classList.remove("active");
 });
-
-// const button= document.querySelector("#Registerbutton");
-
-// Registerbutton.addEventListener("click", function(){
-//     console.log("the button is clicked");
-// });

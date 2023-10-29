@@ -1,35 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Array to store expenses
-    const expenses = [];
+    const explanations = [];
     const friends = [];
+    const expenses = [];
 
-    // Get elements from the DOM
-    const expenseInput = document.getElementById("expense");
-    const descriptionInput = document.getElementById("description");
-    const addExpenseButton = document.getElementById("addExpense");
+    const explanationInput = document.getElementById("description");
+    const addExplanationButton = document.getElementById("addExplanation");
+    const explanationList = document.getElementById("descriptionList");
+
     const friendNameInput = document.getElementById("friendName");
     const inviteFriendButton = document.getElementById("inviteFriend");
     const friendList = document.getElementById("friendList");
+
+    const expenseInput = document.getElementById("expense");
+    const eventNameInput = document.getElementById("eventName");
+    
+    const addExpenseButton = document.getElementById("addExpense");
     const expenseList = document.getElementById("expenseList");
+
     const totalAmount = document.getElementById("totalAmount");
-
-    // Event listener for adding an expense
-    addExpenseButton.addEventListener("click", () => {
-        const expense = parseFloat(expenseInput.value);
-        const description = descriptionInput.value;
-
-        if (!isNaN(expense) && description) {
-            expenses.push({ description, amount: expense });
-            updateExpenseList();
-            expenseInput.value = "";
-            descriptionInput.value = "";
+    const totalBalance = document.getElementById("totalBalance");
+    
+    addExplanationButton.addEventListener("click", () => {
+        const explanationText = explanationInput.value;
+        if (explanationText) {
+            explanations.push(explanationText);
+            updateExplanationList();
+            explanationInput.value = "";
         }
     });
 
-    // Event listener for inviting a friend
     inviteFriendButton.addEventListener("click", () => {
         const friendName = friendNameInput.value;
-
         if (friendName) {
             friends.push(friendName);
             updateFriendList();
@@ -37,30 +38,52 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Function to update the friend list
+    addExpenseButton.addEventListener("click", () => {
+        const expenseAmount = parseFloat(expenseInput.value);
+        const eventName = eventNameInput.value;
+        if (!isNaN(expenseAmount) && eventName) {
+            const expenseText = `Event: ${eventName}<br>Amount: €${expenseAmount.toFixed(2)}`;
+            expenses.push(expenseText);
+            updateExpenseList();
+            expenseInput.value = "";
+            eventNameInput.value = "";
+        }
+    });
+
+    function updateExplanationList() {
+        explanationList.innerHTML = "";
+        explanations.forEach((explanation) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = explanation;
+            explanationList.appendChild(listItem);
+        });
+    }
+
     function updateFriendList() {
         friendList.innerHTML = "";
         friends.forEach((friend) => {
             const listItem = document.createElement("li");
-            listItem.innerText = friend;
+            listItem.textContent = friend;
             friendList.appendChild(listItem);
         });
     }
 
-    // Function to update the expense list
     function updateExpenseList() {
         expenseList.innerHTML = "";
         expenses.forEach((expense) => {
             const listItem = document.createElement("li");
-            listItem.innerText = `${expense.description}: €${expense.amount.toFixed(2)}`;
+            listItem.innerHTML = expense;
             expenseList.appendChild(listItem);
         });
         updateTotalAmount();
     }
 
-    // Function to calculate and update the total amount
     function updateTotalAmount() {
-        const total = expenses.reduce((acc, expense) => acc + expense.amount, 0);
-        totalAmount.textContent = `Total amount: €${total.toFixed(2)}`;
+        const total = expenses.reduce((acc, expense) => {
+            const amountString = expense.split("<br>Amount: €")[1];
+            return acc + parseFloat(amountString);
+        }, 0);
+        totalAmount.innerHTML = `Total amount: €${total.toFixed(2)}`;
+        totalBalance.innerHTML = `Total Balance: €${total.toFixed(2)}`;
     }
 });

@@ -38,6 +38,13 @@ function createUser(): void{
         const query: string = "INSERT INTO user (username, email, password) VALUES (? ,? , ?)";
         api.queryDatabase(query, registerUsername, registerEmail, registerPassword,);
         console.log("user has been created", registerUsername, registerEmail, registerPassword,);
+
+        // Leeg de velden
+        registerUsernameInput.value = "";
+        registerEmailInput.value = "";
+        registerPasswordInput.value = "";
+        confirmPasswordInput.value = "";
+         
     }   else {
 
         console.error("could not find needed input-field");
@@ -57,37 +64,46 @@ if (Registerbutton){
 // Login form
 
 
-function loginUser(): void{
+function loginUser(): void {
     const loginEmailInput: HTMLInputElement = document.querySelector("#loginEmail") as HTMLInputElement;
-    const loginPasswordlInput: HTMLInputElement = document.querySelector("#loginPassword") as HTMLInputElement;
+    const loginPasswordInput: HTMLInputElement = document.querySelector("#loginPassword") as HTMLInputElement;
 
-    if (loginEmailInput && loginPasswordlInput) {
-        const loginEmail:  string= loginEmailInput.value;
+    if (loginEmailInput && loginPasswordInput) {
+        const loginEmail: string = loginEmailInput.value;
         console.log("Email:", loginEmail);
 
-        const loginPassword: string = loginPasswordlInput.value;
+        const loginPassword: string = loginPasswordInput.value;
         console.log("Password:", loginPassword);
 
+        // In plaats van een INSERT INTO-query, gebruik je een SELECT-query om de gebruiker te controleren
+        const query: string = "SELECT * FROM user WHERE email = ? AND password = ?";
+
+        api.queryDatabase(query, loginEmail, loginPassword)
+            .then((results) => {
+
+                if (results && results.length > 0) {
+                    console.log( "User logged in", results);
+                } else {
+                    console.error( "Login details incorrect");
+                }
+            })
+            .catch((error) => {
+                console.error("Error logging in", error);
+            });
+
+        // Leeg de velden
+        loginEmailInput.value = "";
+        loginPasswordInput.value = "";
 
 
-        // if (loginPasswordl !== confirmPassword) {
-        //     console.error("password is incorrect"); 
-        //     return;
-        // }
-    
-        // const query: string = "Select * From Participant Where Email = ? and password = ?";
-        const query: string = "INSERT INTO Participant (email, password) VALUES (? ,? )";
-        api.queryDatabase(query, loginEmail, loginPassword,);
-        console.log("user has logged in", loginEmail, loginPassword,);
-    }   else {
-
-        console.error("could not find needed input-field");
+    } else {
+        console.error("Kcould not find needed input-field");
     }
 }
 
 const loginButton: HTMLButtonElement = document.querySelector("#loginButton") as HTMLButtonElement;
-if (loginButton){
+if (loginButton) {
     loginButton.addEventListener("click", loginUser);
-} else{
+} else {
     console.error("cant find loginButton");
-} 
+}
