@@ -1,25 +1,32 @@
 document.addEventListener("DOMContentLoaded", () => {
     const explanations = [];
-    const friends = [];
+    const participants = [];
     const expenses = [];
 
     const explanationInput = document.getElementById("description");
     const addExplanationButton = document.getElementById("addExplanation");
-    const explanationList = document.getElementById("descriptionList");
 
-    const friendNameInput = document.getElementById("friendName");
-    const inviteFriendButton = document.getElementById("inviteFriend");
-    const friendList = document.getElementById("friendList");
+
+    const explanationList = document.getElementById("descriptionList");
+    const participantNameInput = document.getElementById("participantName");
+
+
+    const inviteParticipantButton = document.getElementById("inviteParticipant");
+    const participantList = document.getElementById("participantList"); 
+
 
     const expenseInput = document.getElementById("expense");
     const eventNameInput = document.getElementById("eventName");
-    
+
+
     const addExpenseButton = document.getElementById("addExpense");
     const expenseList = document.getElementById("expenseList");
 
+
     const totalAmount = document.getElementById("totalAmount");
     const totalBalance = document.getElementById("totalBalance");
-    
+
+
     addExplanationButton.addEventListener("click", () => {
         const explanationText = explanationInput.value;
         if (explanationText) {
@@ -29,14 +36,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    inviteFriendButton.addEventListener("click", () => {
-        const friendName = friendNameInput.value;
-        if (friendName) {
-            friends.push(friendName);
-            updateFriendList();
-            friendNameInput.value = "";
+
+    inviteParticipantButton.addEventListener("click", () => { 
+        const participantName = participantNameInput.value;
+        if (participantName) {
+            participants.push(participantName);
+            updateParticipantList();
+            participantNameInput.value = "";
         }
     });
+
 
     addExpenseButton.addEventListener("click", () => {
         const expenseAmount = parseFloat(expenseInput.value);
@@ -50,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+
     function updateExplanationList() {
         explanationList.innerHTML = "";
         explanations.forEach((explanation) => {
@@ -59,14 +69,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    function updateFriendList() {
-        friendList.innerHTML = "";
-        friends.forEach((friend) => {
+
+    function updateParticipantList() {
+        participantList.innerHTML = "";
+        participants.forEach((participant) => {
             const listItem = document.createElement("li");
-            listItem.textContent = friend;
-            friendList.appendChild(listItem);
+            listItem.textContent = participant;
+            participantList.appendChild(listItem);
         });
     }
+
 
     function updateExpenseList() {
         expenseList.innerHTML = "";
@@ -78,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         updateTotalAmount();
     }
 
+    
     function updateTotalAmount() {
         const total = expenses.reduce((acc, expense) => {
             const amountString = expense.split("<br>Amount: €")[1];

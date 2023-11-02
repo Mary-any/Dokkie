@@ -1,11 +1,6 @@
-import { api } from "@hboictcloud/api";
+import "/src/hboictcloud-config";
+import{ api, session } from "@hboictcloud/api";
 
-api.configure({
-    url: "https://api.hbo-ict.cloud",
-    apiKey: "pb1b2324_anyanwm.Wcfh0zROqOcia2YT",
-    database: "pb1b2324_anyanwm_dokkie",
-    environment: "live"
-});
 
 
 // sign up form
