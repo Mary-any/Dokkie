@@ -30,9 +30,12 @@ section{
 .faq{
     max-width: 700px;
     margin-top: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid white;
     cursor: pointer;
+}
+
+.question, .answer {
+    border-bottom: 2px solid white;
+    padding-bottom: 1rem;
 }
 
 .question {
@@ -45,7 +48,7 @@ section{
     font-size: 1.2rem;
 }
 
-.answer{
+.answer {
     max-height: 0;
     overflow: hidden;
     transition: max-height 1.3s ease;

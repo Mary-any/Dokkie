@@ -19,6 +19,4 @@ function validateForm() {
         return false;
     }
 
-    // Als alle validaties slagen, kun je hier de code toevoegen om het formulier te verzenden.
-    // Bijvoorbeeld: document.getElementById("paymentForm").submit();
 };

@@ -34,7 +34,7 @@ function createUser(): void{
         api.queryDatabase(query, registerUsername, registerEmail, registerPassword,);
         console.log("user has been created", registerUsername, registerEmail, registerPassword,);
 
-        // Leeg de velden
+        //Clear the fields
         registerUsernameInput.value = "";
         registerEmailInput.value = "";
         registerPasswordInput.value = "";
@@ -70,7 +70,7 @@ function loginUser(): void {
         const loginPassword: string = loginPasswordInput.value;
         console.log("Password:", loginPassword);
 
-        // In plaats van een INSERT INTO-query, gebruik je een SELECT-query om de gebruiker te controleren
+        // Instead of an INSERT INTO query, use a SELECT query to check the user
         const query: string = "SELECT * FROM user WHERE email = ? AND password = ?";
 
         api.queryDatabase(query, loginEmail, loginPassword)
@@ -86,13 +86,25 @@ function loginUser(): void {
                 console.error("Error logging in", error);
             });
 
-        // Leeg de velden
+        //Clear the fields
         loginEmailInput.value = "";
         loginPasswordInput.value = "";
 
 
     } else {
-        console.error("Kcould not find needed input-field");
+        console.error("could not find needed input-field");
+    }
+
+    session.set ("loggedin", true);
+    session.set ("username","mary");
+
+    const loggedin: string  = session.get("loggedin");
+    if(loggedin){
+        console.log("oke");
+        console.log(session.get("username"), "has logged in");
+        location.replace("../profiel.html");
+    } else {
+        console.log("You have to login in first");
     }
 }
 

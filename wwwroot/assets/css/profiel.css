@@ -1,0 +1,52 @@
+body {
+    background-color: cornflowerblue;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+header {
+    background-color: royalblue;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+
+.profile-info img {
+    border-radius: 50%;
+    max-width: 150px; 
+    height: auto;
+}
+
+/* Style the outings-button */
+#outingButton {
+    background-color: royalblue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#outingButton:hover {
+    background-color: cornflowerblue;
+}
+
+
+#outingButton a {
+    text-decoration: none; /* Verwijder de onderstreping */
+    color: white;
+    transition: color 0.3s ease;
+}
+
+#outingButton a:hover {
+    color: black;
+}

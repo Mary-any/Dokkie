@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const explanations = [];
     const participants = [];
     const expenses = [];
+    const payment = [];
 
     const explanationInput = document.getElementById("description");
     const addExplanationButton = document.getElementById("addExplanation");
@@ -22,11 +23,48 @@ document.addEventListener("DOMContentLoaded", () => {
     const addExpenseButton = document.getElementById("addExpense");
     const expenseList = document.getElementById("expenseList");
 
+    const addPaymentButton = document.getElementById("addPayment");
+    const datePaidInput = document.getElementById("datePaid"); // Nieuw invoerveld voor datePaid
 
     const totalAmount = document.getElementById("totalAmount");
     const totalBalance = document.getElementById("totalBalance");
 
 
+    /// eventlistener for "Add Payment" button
+    addPaymentButton.addEventListener("click", () => {
+        const datePaid = datePaidInput.value;
+        const paymentAmount = parseFloat(expenseInput.value); 
+        const eventName = eventNameInput.value;
+
+        if (!isNaN(paymentAmount) && eventName) {
+       
+            const paymentText = `Event: ${eventName}, Date Paid: ${datePaid}, Amount: €${paymentAmount.toFixed(2)}`;
+            payments.push(paymentText);
+
+           
+            // Update the list of payments
+            updatePaymentList();
+            datePaidInput.value = "";
+            expenseInput.value = ""; 
+            eventNameInput.value = "";
+        }
+    });
+
+    // The rest of my update features
+
+    function updatePaymentList() {
+        const paymentList = document.getElementById("expenseList"); // De ID moet "expenseList" zijn
+        paymentList.innerHTML = "";
+        payments.forEach((payment) => {
+            const listItem = document.createElement("li");
+            listItem.innerHTML = payment;
+            paymentList.appendChild(listItem);
+        });
+        updateTotalAmount();
+    }
+
+
+    // eventlistener for "Add Explanation" button
     addExplanationButton.addEventListener("click", () => {
         const explanationText = explanationInput.value;
         if (explanationText) {
@@ -36,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-
+    // eventlistener for "Add Participan" button
     inviteParticipantButton.addEventListener("click", () => { 
         const participantName = participantNameInput.value;
         if (participantName) {
@@ -46,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-
+    // eventlistener for "Add Expense" button
     addExpenseButton.addEventListener("click", () => {
         const expenseAmount = parseFloat(expenseInput.value);
         const eventName = eventNameInput.value;
@@ -90,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
         updateTotalAmount();
     }
 
-    
+
     function updateTotalAmount() {
         const total = expenses.reduce((acc, expense) => {
             const amountString = expense.split("<br>Amount: €")[1];
@@ -99,4 +137,22 @@ document.addEventListener("DOMContentLoaded", () => {
         totalAmount.innerHTML = `Total amount: €${total.toFixed(2)}`;
         totalBalance.innerHTML = `Total Balance: €${total.toFixed(2)}`;
     }
+});
+
+
+//  WhatsApp" Button
+const shareWhatsAppButton = document.getElementById("shareWhatsApp");
+shareWhatsAppButton.addEventListener("click", () => {
+    const totalAmount = document.getElementById("totalAmount").textContent;
+    const expenseList = document.getElementById("expenseList").innerText;
+
+    const message = `Outing settlement\n\n${totalAmount}\n\Outing:\n${expenseList}`;
+
+    
+    // WhatsApp shareable link
+    const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}`;
+
+  
+    // Open a new tab with the WhatsApp link
+    window.open(whatsappURL);
 });
