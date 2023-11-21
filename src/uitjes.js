@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const explanations = [];
     const participants = [];
     const expenses = [];
-    const payment = [];
+    const payments = [];
 
     const explanationInput = document.getElementById("description");
     const addExplanationButton = document.getElementById("addExplanation");
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // eventlistener for "Add Expense" button
-    addExpenseButton.addEventListener("click", () => {
+    addExpenseButton.addEventListener("click", async () => {
         const expenseAmount = parseFloat(expenseInput.value);
         const eventName = eventNameInput.value;
         if (!isNaN(expenseAmount) && eventName) {
@@ -110,6 +110,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateParticipantList() {
         participantList.innerHTML = "";
+
+        console.log(participantList);
+        
         participants.forEach((participant) => {
             const listItem = document.createElement("li");
             listItem.textContent = participant;
